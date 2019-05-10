@@ -32,8 +32,8 @@
 
 
 
- function PostRequests(objetct, token){
-      
+ function PostRequests(objetct, token, path){
+    var path = arguments[2]
     // Declaração de Variáveis
     var request = arguments[0]//Objeto/Dicionario do que deve ser mandado
     var result = document.getElementById("Resultado");//Onde deve aparecer a resposta
@@ -47,7 +47,7 @@
         // Exibi a imagem de progresso
         result.innerHTML = '<img src="Progresso1.gif"/>';
 
-        xmlrq.open('POST', service+"?token="+token+"&ip="+getIP());//pegando o ip e criando a requisição
+        xmlrq.open('POST', path+"/"+service+"?token="+token+"&ip="+getIP());//pegando o ip e criando a requisição
         xmlrq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xmlrq.onload = function() {
             if (xmlreq.status == 200) {
