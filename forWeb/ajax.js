@@ -28,13 +28,7 @@
   * Função para enviar os dados
   */
 
-function getIP(){
-    const html = (await (await fetch("https://api.ipify.org/?")).text()); // html as text
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return getElementsByTagName("pre").textContent
-  
 
-}
 
 
 
@@ -43,7 +37,12 @@ function getIP(){
     // Declaração de Variáveis
     var request = arguments[0]//Objeto/Dicionario do que deve ser mandado
     var result = document.getElementById("Resultado");//Onde deve aparecer a resposta
-    var xmlreq = creatRequqestRequest();
+    var xmlreq = creatRequest();
+    var ip = (function getIP(){
+    const html = (await (await fetch("https://api.ipify.org/?")).text()); // html as text
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return getElementsByTagName("pre").textContent
+    })
     if(xmlreq != false){
         // Exibi a imagem de progresso
         result.innerHTML = '<img src="Progresso1.gif"/>';
