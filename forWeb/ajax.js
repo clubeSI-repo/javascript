@@ -37,7 +37,7 @@
     // Declaração de Variáveis
     var request = arguments[0]//Objeto/Dicionario do que deve ser mandado
     var result = document.getElementById("Resultado");//Onde deve aparecer a resposta
-    var xmlreq = creatRequest();
+    var xmlreq = CriaRequest();
     var ip = (function getIP(){
     const html = (await (await fetch("https://api.ipify.org/?")).text()); // html as text
     const doc = new DOMParser().parseFromString(html, 'text/html');
